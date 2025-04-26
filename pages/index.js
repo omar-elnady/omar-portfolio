@@ -1,6 +1,7 @@
 import HomePage from '../components/Home'
 import Head from 'next/head'
-import '@fortawesome'
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
 
 export default function Home() {
     return (

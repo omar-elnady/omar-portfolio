@@ -30,15 +30,15 @@ const Contact = () => {
     const [submitted, setSubmitted] = useState(false)
 
     const submitForm = () => {
+        emailjs.init('NpF5MLkgVpiPiAU82')
         emailjs
             .sendForm(
-                'service_mg6nzzn', 'template_en8166k', form.current
+                'service_kw1d8a8', 'template_67arneb', form.current
             )
             .then(
                 function (response) {
                     setSubmitted(true)
                     reset()
-                    // console.log('SUCCESS!', response.status, response.text)
                 },
                 function (error) {
                     console.log('FAILED DID NOT SEND MESSAGE...', error)
@@ -48,7 +48,7 @@ const Contact = () => {
     return (
         <div className='flex items-center'>
             <Head>
-                <title>Contact | Prasad Chavan</title>
+                <title>Contact | Omar</title>
             </Head>
             <div className='h-screen max-w-screen-xl px-4 py-16 mx-auto md:pt-32 md:p-20'>
                 <div className='grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5'>
@@ -57,26 +57,26 @@ const Contact = () => {
                             Let&#39;s Talk
                         </h1>
                         <p className='max-w-xl text-lg pt-4'>
-                            Have any questions? Send me a message here! <br />I respond
-                            quickly (within 48 hours). <br />
+                            Have any questions ? Send me a message here! <br />I respond
+                            quickly ( within 48 hours ). <br />
                             <br />
                             Additional ways to get in touch <br />
                             LinkedIn:{' '}
                             <a
                                 className='text-blue-500 hover:underline'
-                                href='https://www.linkedin.com/in/prasad-chavan2003/'
+                                href='https://www.linkedin.com/in/omarelnadey/'
                                 target='_blank'
                                 rel='noopener noreferrer'
                             >
-                                /in/prasad-chavan2003/
+                                /in/omarelnadey
                             </a>{' '}
                             <br />
                             Email:{' '}
                             <a
                                 className='text-blue-500 hover:underline'
-                                href='mailto:askokc4321@gmail.com'
+                                href='mailto:omarahmedelnadey@gmail.com'
                             >
-                                askokc4321@gmail.com
+                                omarahmedelnadey@gmail.com
                             </a>
                         </p>
                     </div>

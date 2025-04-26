@@ -5,24 +5,7 @@ const Home = () => {
     return (
 
         <motion.div
-
-            // initial='hidden'
-            // animate='visible'
-            // variants={{
-            //     hidden: {
-            //         scale: 0.8,
-            //         opacity: 0,
-            //     },
-            //     visible: {
-            //         scale: 1,
-            //         opacity: 1,
-            //         transition: {
-            //             delay: 0.6,
-            //         },
-            //     },
-            // }}
-            // animate={{ x: [-200, 0, 200, 0] }}
-            initial={{ y: -500 }}
+            initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ ease: "easeOut", duration: 2 }}
         >

@@ -62,7 +62,10 @@ const Skills = () => {
               Backend
             </span>
             {backendSkilss.map((skill, index) => (
-              <li className=" text-xl font-bold flex justify-center items-center flex-col">
+              <li
+                key={index}
+                className=" text-xl font-bold flex justify-center items-center flex-col"
+              >
                 {skill.icon}
                 {skill.name}
               </li>
@@ -75,7 +78,10 @@ const Skills = () => {
             </span>
 
             {frontendSkills.map((skill, index) => (
-              <li className=" text-xl font-bold flex justify-center items-center flex-col">
+              <li
+                key={index}
+                className=" text-xl font-bold flex justify-center items-center flex-col"
+              >
                 {skill.icon}
                 {skill.name}
               </li>

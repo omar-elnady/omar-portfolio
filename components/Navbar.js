@@ -62,7 +62,7 @@ const Navbar = () => {
                       }
                     >
                       <Link href={link.path}>
-                        <a>{link.name}</a>
+                        <a className="font-semibold">{link.name}</a>
                       </Link>
                     </h1>
                   ))}
@@ -76,7 +76,7 @@ const Navbar = () => {
                         href={link.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden md:block hover:text-blue-500 ease-in duration-200"
+                        className="hidden md:block hover:text-blue-500 ease-in duration-200 "
                       >
                         {link.icon}
                       </a>
@@ -128,7 +128,7 @@ const Navbar = () => {
                       }
                     >
                       <Link href={link.path}>
-                        <a onClick={handleMobileNav}>{link.name}</a>
+                        <a className="font-semibold" onClick={handleMobileNav}>{link.name}</a>
                       </Link>
                     </h1>
                   ))}

@@ -1,162 +1,96 @@
-import { IoIosSend } from 'react-icons/io'
-import emailjs from '@emailjs/browser'
-import * as yup from 'yup'
-import { useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import Head from 'next/head'
-import Popup from '../components/ContactSubmitPopup'
+import React from "react";
+import {
+  Mail,
+  Linkedin,
+  Phone,
+  MessageSquare,
+  Facebook,
+  GithubIcon,
+} from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
-emailjs.init('yKa48bbuNsDFFFVWj');
-
-const contactSchema = yup.object({
-    name: yup.string().required(),
-    email: yup.string().email().required(),
-    message: yup.string().required(),
-})
+// import { cn } from "@/lib/utils";
 
 const Contact = () => {
-    const form = useRef()
+  const contactMethods = [
+    {
+      icon: <Mail className="h-5 w-5" />,
+      label: "Email",
+      value: "omarahmedelnadey@gmail.com",
+      href: "mailto:omarahmedelnadey@gmail.com",
+    },
+    {
+      icon: <Linkedin className="h-5 w-5" />,
+      label: "LinkedIn",
+      value: "linkedin.com/in/omarelnadey",
+      href: "https://linkedin.com/in/omarelnadey",
+    },
+    {
+      icon: <GithubIcon className="h-5 w-5" />,
+      label: "GitHub",
+      value: "github.com/omar-elnady",
+      href: "tel:+201013341863",
+    },
+    {
+      icon: <Facebook className="h-5 w-5" />,
+      label: "Facebook",
+      value: "facebook.com/omarahmedelnadey",
+      href: "www.facebook.com/omarahmedelnadey",
+    },
+  ];
 
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm({
-        resolver: yupResolver(contactSchema),
-    })
+  return (
+    <section className="h-screen  pt-32  px-4 md:px-6 lg:px-8 bg-white">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-blue-500 mb-4">
+          Let’s Build Something Together
+        </h2>
+        <p className="text-lg text-gray-600 mb-10">
+          I’m always happy to discuss new ideas, solve problems, or collaborate
+          on interesting projects. Feel free to reach out anytime — I’d love to
+          hear from you.
+        </p>
 
-    const [submitted, setSubmitted] = useState(false)
-
-    const submitForm = () => {
-        emailjs.init('NpF5MLkgVpiPiAU82')
-        emailjs
-            .sendForm(
-                'service_kw1d8a8', 'template_67arneb', form.current
-            )
-            .then(
-                function (response) {
-                    setSubmitted(true)
-                    reset()
-                },
-                function (error) {
-                    console.log('FAILED DID NOT SEND MESSAGE...', error)
-                }
-            )
-    }
-    return (
-        <div className='flex items-center'>
-            <Head>
-                <title>Contact | Omar</title>
-            </Head>
-            <div className='h-screen max-w-screen-xl px-4 py-16 mx-auto md:pt-32 md:p-20'>
-                <div className='grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5'>
-                    <div className='lg:col-span-2'>
-                        <h1 className='font-bold text-6xl text-blue-500 pt-20'>
-                            Let&#39;s Talk
-                        </h1>
-                        <p className='max-w-xl text-lg pt-4'>
-                            Have any questions ? Send me a message here! <br />I respond
-                            quickly ( within 48 hours ). <br />
-                            <br />
-                            Additional ways to get in touch <br />
-                            LinkedIn:{' '}
-                            <a
-                                className='text-blue-500 hover:underline'
-                                href='https://www.linkedin.com/in/omarelnadey/'
-                                target='_blank'
-                                rel='noopener noreferrer'
-                            >
-                                /in/omarelnadey
-                            </a>{' '}
-                            <br />
-                            Email:{' '}
-                            <a
-                                className='text-blue-500 hover:underline'
-                                href='mailto:omarahmedelnadey@gmail.com'
-                            >
-                                omarahmedelnadey@gmail.com
-                            </a>
-                        </p>
-                    </div>
-
-                    <div className='p-8 rounded-lg lg:p-12 lg:col-span-3'>
-                        <form
-                            ref={form}
-                            onSubmit={handleSubmit(submitForm)}
-                            className='space-y-4'
-                        >
-                            <div>
-                                <label className='sr-only'>Name</label>
-                                <input
-                                    className='w-full p-3 text-sm rounded-lg border border-black'
-                                    placeholder='Name'
-                                    type='text'
-                                    name='name'
-                                    {...register('name')}
-                                    />
-                                <p>
-                                    <span className='text-red-600'>{errors.name?.message}</span>
-                                </p>
-                            </div>
-                            <div>
-                                <label className='sr-only'>Email</label>
-                                <input
-                                    className='w-full p-3 text-sm rounded-lg border border-black'
-                                    placeholder='Email address'
-                                    type='email'
-                                    name='email'
-                                    {...register('email')}
-                                    />
-                                <p>
-                                    <span className='text-red-600'>{errors.email?.message}</span>
-                                </p>
-                            </div>
-                            <div>
-                                <label className='sr-only'>Message</label>
-                                <textarea
-                                    className='w-full p-3 text-sm rounded-lg border border-black'
-                                    placeholder='Message'
-                                    type='text'
-                                    rows='8'
-                                    name='message'
-                                    {...register('message')}
-                                ></textarea>
-                                <p>
-                                    <span className='text-red-600'>
-                                        {errors.message?.message}
-                                    </span>
-                                </p>
-                            </div>
-
-                            <div className='mt-4'>
-                                {!submitted ? (
-                                    <button
-                                        type='submit'
-                                        className='inline-flex items-center justify-center w-full px-5 py-3 text-white bg-mnBlue rounded-lg sm:w-auto space-x-2 hover:bg-carolinaBlue'
-                                    >
-                                        <span className='font-medium'> Send </span>
-                                        <IoIosSend size='20px' />
-                                    </button>
-                                ) : submitted ? (
-                                        <Popup
-                                            title='Message Sent! &#128077;'
-                                            message='Thank you for your message. I will get back to you within 48 hours.'
-                                            />
-                                    ) : (
-                                            <Popup
-                                                title='Error Sending Message!'
-                                                message='If this error keeps occuring please contact me directly through email and/or LinkedIn'
-                                                />
-                                        )}
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
+          {contactMethods.map((method, index) => (
+            <a
+              key={index}
+              href={method.href}
+              className="flex flex-col items-center p-6 rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow bg-white"
+              target={method.href?.includes("http") ? "_blank" : undefined}
+              rel={
+                method.href?.includes("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
+            >
+              <div className="bg-blue-50 p-3 rounded-full mb-4">
+                {method.icon}
+              </div>
+              <span className="text-sm font-medium text-gray-500 mb-1">
+                {method.label}
+              </span>
+              <span className="text-gray-800 font-medium text-center">
+                {method.value}
+              </span>
+            </a>
+          ))}
         </div>
-    )
-}
 
-export default Contact
+        <div className="fixed bottom-6 right-6 z-50">
+          <a
+            href="https://wa.me/201013341863"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
+            aria-label="Message me on WhatsApp"
+          >
+            <FaWhatsapp className="w-7 h-7" />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;

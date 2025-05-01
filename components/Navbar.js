@@ -139,10 +139,7 @@ const Navbar = () => {
             </div>
 
             {/* HAMBURGER MENU ON MOBILE AND SWITCH TO DARK MODE */}
-            <div
-              onClick={handleMobileNav}
-              className="mr-14 md:hidden flex items-center gap-4"
-            >
+            <div className="mr-14 md:hidden flex items-center gap-4">
               <button
                 onClick={() => setIsDark(!isDark)}
                 className="p-3 rounded-lg shadow-md cursor-pointer bg-blue-500 text-white"
@@ -150,6 +147,7 @@ const Navbar = () => {
                 {isDark ? <BsSun /> : <BsMoon />}
               </button>
               <AiOutlineMenu
+                onClick={handleMobileNav}
                 className="cursor-pointer text-black dark:text-white"
                 size="2rem"
               />
@@ -165,11 +163,9 @@ const Navbar = () => {
             }
           >
             <div
-              className={`${
-                isOpen
-                  ? "fixed left-0 top-0 w-full sm:w-[40%] md:w-[30%] h-screen bg-gray-800 p-10 ease-in duration-300"
-                  : "fixed left-[-100%] top-0 p-10 ease-in duration-300"
-              } transition-colors duration-500`}
+              className={`fixed top-0 p-10 ease-in duration-300 h-screen bg-gray-800 dark:bg-gray-900 transition-all ${
+                isOpen ? "left-0 w-full sm:w-[40%] md:w-[30%]" : "left-[-100%]"
+              }`}
             >
               <div className="flex w-full items-center justify-between">
                 <div

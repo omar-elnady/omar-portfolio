@@ -15,17 +15,17 @@ const Navbar = () => {
     {
       path: "https://github.com/omar-elnady",
       platform: "Github",
-      icon: <BsGithub size="2rem" />,
+      icon: <BsGithub size={32} />,
     },
     {
       path: "https://www.facebook.com/omarahmedelnadey",
       platform: "Facebook",
-      icon: <FaFacebookSquare size="2rem" />,
+      icon: <FaFacebookSquare size={32} />,
     },
     {
       path: "https://www.linkedin.com/in/omar-ahmed-531654227/",
       platform: "LinkedIn",
-      icon: <BsLinkedin size="2rem" />,
+      icon: <BsLinkedin size={32} />,
     },
   ];
 

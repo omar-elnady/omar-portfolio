@@ -4,6 +4,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import About from "../components/about";
 import Projects from "../components/projects";
 import Footer from "../components/Footer";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -32,6 +33,17 @@ export default function Home() {
         </section>
       </div>
       <Footer />
+      <div className="fixed bottom-6 right-6 z-50">
+        <a
+          href="https://wa.me/201013341863"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
+          aria-label="Message me on WhatsApp"
+        >
+          <FaWhatsapp className="w-7 h-7" />
+        </a>
+      </div>
     </>
   );
 }

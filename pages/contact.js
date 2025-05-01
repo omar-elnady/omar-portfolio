@@ -57,7 +57,11 @@ const Contact = () => {
             <a
               key={index}
               href={method.href}
-              className="flex flex-col items-center p-6 rounded-lg border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow bg-gray-100 dark:bg-gray-800"
+              className="flex flex-col items-center p-6 rounded-lg border border-gray-100 
+    dark:border-gray-700 bg-gray-100 dark:bg-gray-800
+    shadow-sm hover:shadow-md dark:shadow-gray-900 
+    dark:hover:shadow-blue-500/20 
+    transition-all duration-300"
               target={method.href?.includes("http") ? "_blank" : undefined}
               rel={
                 method.href?.includes("http")

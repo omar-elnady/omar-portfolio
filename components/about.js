@@ -32,7 +32,7 @@ const About = () => {
                   },
                 }}
               >
-                <h1 className="text-3xl font-bold sm:text-4xl mb-8 text-black dark:text-white transition-colors duration-500">
+                <h1 className="text-3xl font-bold sm:text-4xl mb-2 text-black dark:text-white transition-colors duration-500">
                   Hello, I&#39;m{" "}
                   <span className="text-blue-500 dark:text-blue-400 transition-colors duration-500">
                     Omar

@@ -31,17 +31,22 @@ const Projects = () => {
       <h1 className="font-bold text-blue-700 dark:text-blue-400 pb-4 text-center transition-colors duration-500 text-3xl">
         Projects
       </h1>
-      <div className="  pb-32 mx-auto space-y-10 pt-10">
+      <div className="  pb-32 mx-auto space-y-10 pt-6">
         {projects.map((project, index) => (
           <section
             key={index}
-            className="p-4 md:p-8 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-2xl hover:-translate-y-5 ease-out transition-all duration-300"
+            className="p-4 md:p-8 bg-gray-100 dark:bg-gray-800 rounded-lg 
+    shadow-lg hover:shadow-xl
+    dark:shadow-gray-900/50
+    dark:hover:shadow-white/10
+    
+    ease-out transition-all duration-300"
           >
             <h1
               onClick={() =>
                 project.clickLink && window.open(project.clickLink, "_blank")
               }
-              className={`font-bold text-lg md:text-xl text-blue-500 dark:text-blue-400 w-fit ${
+              className={`font-bold mb-5 text-lg md:text-xl text-blue-500 dark:text-blue-400 w-fit ${
                 project.clickLink ? "cursor-pointer" : ""
               } transition-colors duration-500`}
             >
@@ -84,13 +89,13 @@ const Projects = () => {
                       </a>
                     </div>
                     <div>
-                    <a
+                      <a
                         href={project.linkInGitHub}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex gap-2 items-center text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300"
                       >
-                        View Project <ArrowRight size={20}/>
+                        View Project <ArrowRight size={20} />
                       </a>
                     </div>
                   </div>

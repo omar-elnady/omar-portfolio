@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Mail,
-  Linkedin,
-  Phone,
-  MessageSquare,
-  Facebook,
-  GithubIcon,
-} from "lucide-react";
-import { FaArrowLeft, FaWhatsapp } from "react-icons/fa";
+import { Mail, Linkedin, Facebook, GithubIcon } from "lucide-react";
 import { useRouter } from "next/router";
 
 const Contact = () => {
@@ -41,28 +33,28 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-white dark:bg-gray-900 transition-colors duration-500 pb-20">
-      <section className="pt-32 px-4 md:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen pt-24 w-full bg-white dark:bg-gray-900 transition-colors duration-500 pb-20">
+      <section className=" ">
+        <div className="flex flex-col items-center justify-center mx-auto ">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-500 mb-4">
             Let’s Build Something Together
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-10">
-            I’m always happy to discuss new ideas, solve problems, or
-            collaborate on interesting projects. Feel free to reach out anytime
-            — I’d love to hear from you.
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-10 w-3/4 text-center">
+            Interested in working together? Have a question about my services?
+            Feel free to reach out, and I'll get back to you as soon as
+            possible.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 ">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 items-center justify-center ">
             {contactMethods.map((method, index) => (
               <a
                 key={index}
                 href={method.href}
                 className="flex flex-col items-center p-6 rounded-lg border border-gray-100 
-      dark:border-gray-700 bg-gray-100 dark:bg-gray-800
-      shadow-sm hover:shadow-md dark:shadow-gray-900 
-      dark:hover:shadow-blue-500/20 
-      transition-all duration-300"
+                       dark:border-gray-700 bg-gray-100 dark:bg-gray-800
+                         shadow-sm hover:shadow-md dark:shadow-gray-900 
+                       dark:hover:shadow-blue-500/20 
+                      transition-all duration-300"
                 target={method.href?.includes("http") ? "_blank" : undefined}
                 rel={
                   method.href?.includes("http")
@@ -81,18 +73,6 @@ const Contact = () => {
                 </span>
               </a>
             ))}
-          </div>
-
-          <div className="fixed bottom-6 right-6 z-50">
-            <a
-              href="https://wa.me/201013341863"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300"
-              aria-label="Message me on WhatsApp"
-            >
-              <FaWhatsapp className="w-7 h-7" />
-            </a>
           </div>
         </div>
       </section>

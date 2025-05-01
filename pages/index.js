@@ -5,6 +5,7 @@ import About from "../components/about";
 import Projects from "../components/projects";
 import Footer from "../components/Footer";
 import { FaWhatsapp } from "react-icons/fa";
+import Contact from "../components/contact";
 
 export default function Home() {
   return (
@@ -30,6 +31,9 @@ export default function Home() {
         </section>
         <section id="projects" className="w-full min-h-screen">
           <Projects />
+        </section>
+        <section id="contact" className="w-full min-h-screen">
+          <Contact />
         </section>
       </div>
       <Footer />

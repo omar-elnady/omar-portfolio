@@ -27,7 +27,7 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen  bg-white dark:bg-gray-900 transition-colors duration-500">
+    <div className="min-h-screen  pt-24  bg-white dark:bg-gray-900 transition-colors duration-500">
       <h1 className="font-bold text-blue-700 dark:text-blue-400 pb-4 text-center transition-colors duration-500 text-3xl">
         Projects
       </h1>

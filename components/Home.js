@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-
 const Home = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="bg-white dark:bg-gray-900 transition-colors duration-500">
       <motion.div
@@ -22,11 +27,11 @@ const Home = () => {
               MERN Stack (ReactJs - NodeJs )
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8 grid-cols-2">
-              <Link href="/contact">
-                <a className="px-12 py-3 text-sm font-medium text-white bg-blue-600 rounded shadow hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:active:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300">
-                  Contact Me
-                </a>
-              </Link>
+                <button onClick={scrollToContact}>
+                  <a className="px-12 py-3 text-sm font-medium text-white bg-blue-600 rounded shadow hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:active:bg-blue-700 dark:focus:ring-blue-800 transition-colors duration-300">
+                    Contact Me
+                  </a>
+                </button>
               <Link href="/resume.pdf">
                 <a
                   target="_blank"

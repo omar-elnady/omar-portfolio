@@ -19,22 +19,24 @@ import {
 import { IoLogoJavascript } from "react-icons/io5";
 
 const Skills = () => {
-  const backendSkilss = [
-    { name: "Node Js", icon: <FaNode size="40" /> },
-    { name: "MongoDB", icon: <SiMongodb size="40" /> },
-    { name: "Mysql", icon: <SiMysql size="40" /> },
-    { name: "Express Js", icon: <SiExpress size="40" /> },
+  const backendSkills = [
+    { name: "Node Js", icon: <FaNode size="40" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "MongoDB", icon: <SiMongodb size="40" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "Mysql", icon: <SiMysql size="40" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "Express Js", icon: <SiExpress size="40" className="text-black dark:text-white transition-colors duration-500" /> },
   ];
+  
   const frontendSkills = [
-    { name: "React Js", icon: <FaReact size="30" /> },
-    { name: "Next Js", icon: <SiNextdotjs size="30" /> },
-    { name: "JavaScript", icon: <IoLogoJavascript size="30" /> },
-    { name: "TypeScript", icon: <SiTypescript size="30" /> },
-    { name: "Tailwind Css", icon: <SiTailwindcss size="30" /> },
-    { name: "Bootstrap", icon: <FaBootstrap size="30" /> },
-    { name: "CSS3", icon: <FaCss3Alt size="30" /> },
-    { name: "HTML5", icon: <FaHtml5 size="30" /> },
+    { name: "React Js", icon: <FaReact size="30" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "Next Js", icon: <SiNextdotjs size="30" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "JavaScript", icon: <IoLogoJavascript size="30" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "TypeScript", icon: <SiTypescript size="30" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "Tailwind Css", icon: <SiTailwindcss size="30" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "Bootstrap", icon: <FaBootstrap size="30" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "CSS3", icon: <FaCss3Alt size="30" className="text-black dark:text-white transition-colors duration-500" /> },
+    { name: "HTML5", icon: <FaHtml5 size="30" className="text-black dark:text-white transition-colors duration-500" /> },
   ];
+  
   return (
     <motion.div
       initial="hidden"
@@ -55,16 +57,16 @@ const Skills = () => {
     >
       <div className="w-full pb-32">
         <div className="mx-auto flex flex-col justify-center">
-          <p className=" font-bold text-blue-900 pb-4 text-center">Skills</p>
+          <p className="font-bold text-blue-700 dark:text-blue-400 pb-4 text-center transition-colors duration-500">Skills</p>
 
-          <ul className="flex justify-start items-center flex-row flex-wrap gap-8 mb-2 bg-blue-50 p-8 rounded-2xl">
-            <span className="text-blue-500 text-2xl w-full text-center md:w-fit">
+          <ul className="flex justify-start items-center flex-row flex-wrap gap-8 mb-4 bg-blue-50 dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-md transition-colors duration-500">
+            <span className="text-blue-500 dark:text-blue-400 text-xl sm:text-2xl w-full text-center md:w-fit font-bold mb-2 md:mb-0 transition-colors duration-500">
               Backend
             </span>
-            {backendSkilss.map((skill, index) => (
+            {backendSkills.map((skill, index) => (
               <li
                 key={index}
-                className=" text-xl font-bold flex justify-center items-center flex-col"
+                className="text-lg sm:text-xl font-bold flex justify-center items-center flex-col gap-2 text-black dark:text-white transition-colors duration-500"
               >
                 {skill.icon}
                 {skill.name}
@@ -72,15 +74,15 @@ const Skills = () => {
             ))}
           </ul>
 
-          <ul className="flex justify-start items-center flex-row gap-8 flex-wrap mb-2 bg-blue-50 p-8 rounded-2xl">
-            <span className="text-blue-500 text-2xl w-full text-center md:w-fit">
+          <ul className="flex justify-start items-center flex-row gap-8 flex-wrap mb-4 bg-blue-50 dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-md transition-colors duration-500">
+            <span className="text-blue-500 dark:text-blue-400 text-xl sm:text-2xl w-full text-center md:w-fit font-bold mb-2 md:mb-0 transition-colors duration-500">
               Frontend
             </span>
 
             {frontendSkills.map((skill, index) => (
               <li
                 key={index}
-                className=" text-xl font-bold flex justify-center items-center flex-col"
+                className="text-lg sm:text-xl font-bold flex justify-center items-center flex-col gap-2 text-black dark:text-white transition-colors duration-500"
               >
                 {skill.icon}
                 {skill.name}
@@ -88,15 +90,15 @@ const Skills = () => {
             ))}
           </ul>
 
-          <ul className="flex items-center flex-row gap-8 flex-wrap mb-2 bg-blue-50 p-8 rounded-2xl">
-            <span className="text-blue-500 text-2xl w-full text-center lg:w-fit">
+          <ul className="flex items-center flex-row gap-8 flex-wrap mb-2 bg-blue-50 dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-md transition-colors duration-500">
+            <span className="text-blue-500 dark:text-blue-400 text-xl sm:text-2xl w-full text-center lg:w-fit font-bold mb-2 lg:mb-0 transition-colors duration-500">
               Other
             </span>
-            <li className="text-xl font-bold flex justify-center items-center flex-col">
+            <li className="text-lg sm:text-xl font-bold flex justify-center items-center flex-col text-black dark:text-white transition-colors duration-500">
               C++
             </li>
-            <li className="text-xl font-bold flex justify-center items-center flex-col">
-              <FaGithub size="40px" />
+            <li className="text-lg sm:text-xl font-bold flex justify-center items-center flex-col gap-2 text-black dark:text-white transition-colors duration-500">
+              <FaGithub size="40px" className="text-black dark:text-white transition-colors duration-500" />
               git/GitHub
             </li>
           </ul>

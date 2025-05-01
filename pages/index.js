@@ -1,6 +1,7 @@
 import HomePage from '../components/Home'
 import Head from 'next/head'
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import About from '../components/about';
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
                 <title>Omar Ahmed</title>
             </Head>
             <HomePage />
+            <About/>
         </div>
     )
 }

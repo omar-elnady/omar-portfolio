@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
 import Skills from "./Skills";
-import Head from "next/head";
-import Link from "next/link";
 
 const About = () => {
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="min-h-screen  bg-white dark:bg-gray-900 transition-colors duration-500">
-      <Head>
-        <title>About | Omar Ahmed</title>
-      </Head>
-      <div className="flex justify-between md:mx-20 md:pt-32 pt-28">
-        <div className="flex flex-col md:ml-20 px-4 sm:px-10 mt-10 w-full">
-          <div className="flex flex-col lg:flex-row">
-            <div className="md:px-8 w-full">
+      <div className="flex justify-between   w-full ">
+        <div className="flex flex-col mt-10 w-full">
+          <div className="flex flex-col  lg:flex-row  gap-2 lg:gap-12 ">
+            <div className=" w-full">
               <motion.div
                 className="md:w-96"
                 initial="hidden"
@@ -93,18 +94,16 @@ const About = () => {
                 Shams University. Most of my experience is in full stack web
                 development and problem solving. Check out some of my work
                 <span> </span>
-                <Link href="/projects">
-                  <a
-                    className="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
-                    id="projects"
-                  >
-                    projects
-                  </a>
-                </Link>
+                <button
+                  onClick={scrollToProjects}
+                  className="text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
+                >
+                  projects
+                </button>
               </p>
             </motion.div>
           </div>
-          <div className="text-bold text-3xl mt-10">
+          <div className="text-bold text-3xl mt-12">
             <Skills />
           </div>
         </div>

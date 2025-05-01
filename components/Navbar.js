@@ -3,16 +3,14 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { BsGithub, BsLinkedin, BsMoon, BsSun } from "react-icons/bs";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { FaFacebookSquare } from "react-icons/fa";
+import { FaArrowLeft, FaFacebookSquare } from "react-icons/fa";
 
 const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const links = [
-    { path: "/", name: "Home" },
-    { path: "/about", name: "About" },
-    { path: "/projects", name: "Projects" },
-  ];
+  const [isDark, setIsDark] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const platformLinks = [
     {
       path: "https://github.com/omar-elnady",
@@ -30,7 +28,6 @@ const Navbar = () => {
       icon: <BsLinkedin size="2rem" />,
     },
   ];
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -61,44 +58,51 @@ const Navbar = () => {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleMobileNav = () => {
     setIsOpen(!isOpen);
   };
 
   return (
     <div>
-      <nav className="fixed z-20 w-full bg-white dark:bg-gray-900 transition-colors duration-500">
+      <nav
+        className={`fixed z-20 w-full bg-white dark:bg-gray-900 transition-all duration-500
+          ${
+            isScrolled
+              ? "border-b border-gray-200 dark:border-gray-700 shadow-lg"
+              : "border-transparent"
+          }`}
+      >
         <div className="w-full transition-colors duration-500">
           <div className="flex items-center h-20 w-full">
-            <div className="flex items-center sm:mx-10 md:mx-10 justify-between w-full transition-colors duration-500">
+            <div className="flex items-center mx-4 md:mx-10 justify-between w-full transition-colors duration-500">
               <div className="flex justify-center items-center flex-shrink-0">
                 <h1 className="font-bold text-xl cursor-pointer text-black dark:text-white transition-colors duration-500">
-                  <Link href="/">
-                    <a className="text-2xl pl-8 sm:pl-0">
+                  {router.pathname === "/contact" ? (
+                    <Link href="/">
+                      <a className="flex items-center gap-2 text-xl hover:text-blue-500 ">
+                        <FaArrowLeft className="w-4 h-4" />
+                        <span>Back to Home</span>
+                      </a>
+                    </Link>
+                  ) : (
+                    <span className="text-2xl">
                       Omar<span className="text-blue-500"> El-Nady</span>
-                    </a>
-                  </Link>
+                    </span>
+                  )}
                 </h1>
-              </div>
-
-              {/* NAVBAR LINKS ON DESKTOP */}
-              <div className="hidden md:block">
-                <div className="flex items-baseline space-x-10 transition-colors duration-500">
-                  {links.map((link, index) => (
-                    <h1
-                      key={index}
-                      className={`${
-                        router.pathname == link.path
-                          ? "text-blue-500"
-                          : "cursor-pointer hover:text-blue-500 text-black dark:text-white"
-                      } transition-colors duration-500`}
-                    >
-                      <Link href={link.path}>
-                        <a className="font-semibold">{link.name}</a>
-                      </Link>
-                    </h1>
-                  ))}
-                </div>
               </div>
 
               {/* DARK MODE TOGGLE AND SOCIAL ICONS ON DESKTOP */}
@@ -139,7 +143,7 @@ const Navbar = () => {
             </div>
 
             {/* HAMBURGER MENU ON MOBILE AND SWITCH TO DARK MODE */}
-            <div className="mr-14 md:hidden flex items-center gap-4">
+            <div className="mr-4 md:hidden flex items-center gap-4">
               <button
                 onClick={() => setIsDark(!isDark)}
                 className="p-3 rounded-lg shadow-md cursor-pointer bg-blue-500 text-white"
@@ -176,24 +180,6 @@ const Navbar = () => {
                 </div>
               </div>
               <div>
-                <div className="flex flex-col space-y-4 pt-4 mt-10 transition-colors duration-500">
-                  {links.map((link, index) => (
-                    <h1
-                      key={index}
-                      className={`${
-                        router.pathname == link.path
-                          ? "text-blue-500"
-                          : "cursor-pointer hover:text-blue-500 text-white"
-                      } transition-colors duration-500`}
-                    >
-                      <Link href={link.path}>
-                        <a className="font-semibold" onClick={handleMobileNav}>
-                          {link.name}
-                        </a>
-                      </Link>
-                    </h1>
-                  ))}
-                </div>
                 <div className="space-x-4 pt-20">
                   <div className="flex space-x-4">
                     {platformLinks.map((link, index) => (
